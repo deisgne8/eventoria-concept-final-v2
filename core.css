@@ -1,0 +1,26 @@
+/* A floating editorial card over a full-bleed event photograph. */
+main>section.core-section{display:block;min-height:0;padding:14px;background:#1b303c;overflow:hidden;isolation:isolate}
+.core-scene{position:relative;display:grid;place-items:center;min-height:700px;height:92svh;max-height:1100px;overflow:hidden;border-radius:24px;isolation:isolate}
+.core-scene .core-image{visibility:visible;z-index:-1;inset:-7% 0;width:100%;height:114%;object-fit:cover;object-position:center;transform:translate3d(0,var(--core-image-shift,0px),0);will-change:transform}
+.core-section .core-content{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;gap:44px;width:min(400px,calc(100% - 40px));min-height:440px;padding:26px;background:#fffffc;border:1px solid #ffffff80;border-radius:20px;color:#1b303c;box-shadow:0 12px 60px #0002;transform:translate3d(0,var(--core-card-shift,0px),0);will-change:transform}
+.core-card-header{display:flex;align-items:center;gap:12px}
+.core-card-header img{width:32px;height:32px;object-fit:contain}
+.core-section .core-content h2{margin:0;font-size:10px;line-height:1.4;letter-spacing:.12em;font-weight:500;color:#1b303c}
+.core-quote-mark{display:block;height:28px;color:#3e92ac;font-size:48px;line-height:1}
+body .core-section .core-content blockquote{margin:10px 0 0;font-size:clamp(23px,2vw,30px);line-height:1.16;font-weight:500;letter-spacing:-.025em;color:#1b303c;text-shadow:none}
+.core-card-footer{display:flex;align-items:end;justify-content:space-between;gap:20px}
+.core-card-footer strong{display:block;font-size:14px;font-weight:500}
+.core-card-footer div>span{display:block;margin-top:5px;font-size:8px;letter-spacing:.12em;color:#52626b}
+.core-card-star{color:#3e92ac;font-size:28px;line-height:1}
+@media(max-width:760px){main>section.core-section{padding:8px}.core-scene{height:85svh;min-height:620px;border-radius:18px}.core-section .core-content{width:min(360px,calc(100% - 40px));min-height:410px;padding:24px;gap:32px;border-radius:16px}.core-scene .core-image{object-position:45% center}body .core-section .core-content blockquote{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.core-scene .core-image,.core-section .core-content{transform:none;will-change:auto}}
+
+/* The full-height photo widens on entry, then the card rises and stays centered. */
+main>section.core-section.core-motion{height:240svh;overflow:visible}
+.core-motion .core-scene{position:sticky;top:88px;height:calc(100svh - 102px);min-height:0;max-height:none}
+.core-scene .core-image{transform:scale(var(--core-image-scale,1));will-change:transform}
+@media(max-width:760px){main>section.core-section.core-motion{height:230svh;padding:14px 8px}.core-motion .core-scene{top:88px;height:calc(100svh - 102px)}}
+@media(prefers-reduced-motion:reduce){main>section.core-section.core-motion{height:auto;overflow:hidden}.core-motion .core-scene{position:relative;top:auto}}
+
+.core-motion .core-scene{clip-path:inset(0 var(--core-reveal-side,0%) 0 round 24px);will-change:clip-path}
+@media(prefers-reduced-motion:reduce){.core-motion .core-scene{clip-path:none;will-change:auto}}

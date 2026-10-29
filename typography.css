@@ -1,0 +1,37 @@
+/* Type-only hierarchy, measured from BRANT: H1 4.8vw/.95, H2 4.2vw/.9,
+card headings 2vw/1, editorial copy 2.8vw/1.1, paragraphs 1vw/1.4. */
+@font-face{font-family:"Clash Grotesk";src:url("assets/fonts/ClashGrotesk-Variable.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
+body,body :is(div,section,footer,p,a,button,input,select,textarea,label,li,dt,dd,span){font-family:Helvetica,"Helvetica Neue",Arial,sans-serif!important}
+body :is(h1,h2,h3,h4,blockquote),body .menu-list a{font-family:"Clash Grotesk",Helvetica,Arial,sans-serif!important}
+body h1:not(.brand-lockup){font-size:clamp(42px,4.8vw,96px);font-weight:500;line-height:.95;letter-spacing:-.025em}
+body :is(.about-intro h2,.approach-heading h2,.expertise-heading h2,.portfolio-header h2,.process-intro h2,.receive-header h2,.social-heading h2,.contact-copy h2,.inertia-clients h2){font-size:clamp(36px,4.2vw,84px);font-weight:500;line-height:.95;letter-spacing:-.04em}
+body :is(h3,.expertise-panel h3,.process-card h3,.social-card h3){font-size:clamp(23px,2vw,40px);font-weight:500;line-height:1.1;letter-spacing:-.025em}
+body .portfolio-title h3{font-size:clamp(36px,4.2vw,84px);line-height:.95}
+body .core-content blockquote{font-size:clamp(28px,2.8vw,56px);font-weight:500;line-height:1.1;letter-spacing:-.025em}
+body :is(.about-description,.approach-lead,.approach-caption p,.expertise-summary,.expertise-panel p,.expertise-panel li,.process-description,.process-card p,.receive-summary,.receive-step p,.contact-intro){font-size:clamp(14px,1vw,20px);font-weight:400;line-height:1.4;letter-spacing:0}
+body :is(.contact-form input,.contact-form select,.contact-form textarea){font-family:Helvetica,"Helvetica Neue",Arial,sans-serif;font-size:clamp(14px,1vw,20px);line-height:1.4;font-weight:400}
+body :is(.contact-form label,.contact-form button,.menu-label,.footer-column h2,.footer-bottom,.social-note,.inertia-client-note){font-family:Helvetica,"Helvetica Neue",Arial,sans-serif!important}
+body .menu-list a{font-weight:500;line-height:1;letter-spacing:-.04em}
+body :is(h2,h3) span{font-family:inherit!important}
+@media(max-width:760px){body :is(.contact-form input,.contact-form select,.contact-form textarea){font-size:16px}}
+
+/* Shared section typography: the introduction defines the page-wide scale. */
+:root{--section-title-size:clamp(36px,4.2vw,84px);--body-copy-size:clamp(14px,1vw,20px);--copy-color:#fff}
+body :is(.about-intro h2,.approach-heading h2,.expertise-heading h2,.portfolio-header h2,.process-intro h2,.receive-header h2,.social-heading h2,.contact-copy h2,.inertia-clients h2){font-size:var(--section-title-size)!important;font-weight:500!important;line-height:.95!important;letter-spacing:-.04em;color:var(--copy-color)}
+body .about-emphasis{color:inherit}
+body :is(.about-description,.approach-lead,.approach-caption p,.expertise-summary,.expertise-panel p,.expertise-panel li,.portfolio-title p,.process-description,.process-card p,.receive-summary,.receive-copy,.contact-intro,.report-top>p){font-size:var(--body-copy-size)!important;font-weight:400!important;line-height:1.4!important;letter-spacing:0;color:var(--copy-color)}
+body :is(.expertise-panel h3,.portfolio-title h3,.process-card h3,.receive-step h3,.social-card h3,.report-name h2,.core-content blockquote){color:var(--copy-color);font-weight:500}
+
+/* Client refinement: premium tracking on display type, Helvetica for all copy. */
+body :is(h1,h2,h3,h4,h5,h6,blockquote,.menu-list a){letter-spacing:.015em}
+body :is(p,a,button,input,select,textarea,label,li,dt,dd,span){font-family:Helvetica,"Helvetica Neue",Arial,sans-serif!important}
+body :is(.about-intro h2,.approach-heading h2,.expertise-heading h2,.portfolio-header h2,.process-intro h2,.receive-header h2,.social-heading h2,.contact-copy h2,.inertia-clients h2){letter-spacing:.015em!important}
+body :is(h3,.expertise-panel h3,.process-card h3,.social-card h3,.portfolio-title h3,.receive-step h3){letter-spacing:.02em!important}
+body .expertise-nav button{font-family:Helvetica,"Helvetica Neue",Arial,sans-serif!important;letter-spacing:.02em!important}
+
+/* Step labels: small step number, larger descriptor. */
+body .receive-step .receive-number{font-size:9px}
+body .receive-step .receive-number span{font-size:clamp(14px,1vw,20px)}
+
+/* Keep social captions compact on desktop cards. */
+@media(min-width:1024px){body .social-card .social-card-caption h3{font-size:24px;line-height:1.15}}

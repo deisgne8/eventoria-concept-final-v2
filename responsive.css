@@ -1,0 +1,95 @@
+/* Shared sizing safeguards; individual sections retain their intended overflow. */
+.approach-layout>* ,.contact-section>* ,.footer-grid>* ,.expertise-sticky>*{min-width:0}
+.about-intro,.process-intro,.receive-header,.clients-description,.footer-column{overflow-wrap:break-word}
+:is(.about-actions a,.approach-caption a,.process-intro a){max-width:100%;min-height:44px}
+.footer-brand{max-width:100%}
+.footer-column a{overflow-wrap:anywhere}
+.sticky-header .menu-toggle,.portfolio-arrows button,.sound-toggle{min-height:44px}
+
+/* Narrow tablets need room for both the contact fields and footer links. */
+@media(max-width:1024px){
+ .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 28px}
+ .inertia-clients-top{gap:32px;align-items:flex-start}
+ .inertia-clients-top>div,.clients-description{flex:1;min-width:0}
+}
+@media(max-width:900px){
+ .contact-section{grid-template-columns:minmax(0,1fr);gap:36px}
+ .contact-form{width:100%;max-width:620px}
+ .inertia-clients-top{flex-direction:column}
+ .clients-description{max-width:480px}
+}
+
+/* Compact screens use accessible discipline buttons instead of a tall pin. */
+@media(max-width:900px),(max-height:650px){
+ .expertise-track{height:auto;margin-top:36px}
+ .expertise-sticky{position:relative;top:auto;height:auto;padding:0 0 32px;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;gap:24px;align-items:start}
+ .expertise-images{grid-column:1;grid-row:1;width:100%;height:clamp(220px,45svh,480px);max-height:none;transform:none}
+ .expertise-images img:first-child{transform:none}
+ .expertise-nav{grid-column:1;grid-row:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0;gap:4px;width:100%}
+ .expertise-nav button{min-width:0;min-height:44px;padding:8px 2px;font-size:clamp(15px,3vw,20px);text-align:center;transform:none;border-bottom:2px solid transparent}
+ .expertise-nav button[aria-pressed=true]{border-bottom-color:#ffcc33}
+ .expertise-nav button[aria-pressed=true]::before{display:none}
+ .expertise-details{grid-column:1;grid-row:3;opacity:1;width:100%}
+ .expertise-panel{display:none}
+ .expertise-panel.is-active{display:block}
+ .expertise-heading{opacity:1;transform:none}
+}
+
+/* Work content flows vertically on phones and short landscape screens. */
+@media(max-width:760px),(max-height:650px){
+ .portfolio-section .portfolio-stage{height:auto;min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding:var(--section-clearance) max(6vw,20px) 76px}
+ .portfolio-header{position:relative;inset:auto;flex-wrap:wrap;gap:20px;align-items:flex-start}
+ .portfolio-header>div{flex:1 1 240px;min-width:0}
+ .portfolio-header h2{max-width:none}
+ .portfolio-header a{max-width:100%;min-height:44px}
+ .portfolio-portraits{position:relative;inset:auto;transform:none;justify-self:center;width:min(72vw,360px);max-width:100%;height:clamp(240px,44svh,420px)}
+ .portfolio-titles{position:relative;inset:auto;transform:none;width:100%;min-width:0}
+ .portfolio-title h3{overflow-wrap:break-word}
+ .portfolio-title p{max-width:100%}
+ .portfolio-footer{position:relative;inset:auto;flex-wrap:wrap;gap:16px;width:100%}
+ .portfolio-footer nav{justify-content:flex-start;gap:4px;flex-wrap:wrap}
+ .portfolio-footer nav button{min-width:36px;min-height:44px;padding:10px 6px}
+ .portfolio-arrows{margin-left:auto}
+}
+
+/* Avoid cropped headings and cards when a pinned stage cannot fit. */
+@media(max-width:760px),(max-height:650px),(prefers-reduced-motion:reduce){
+ .process-section{height:auto}
+ .process-stage{position:relative;top:auto;height:auto;overflow:visible;padding:var(--section-clearance) max(6vw,20px) 64px}
+ .process-intro{position:relative;inset:auto;width:100%;max-width:680px;transform:none;margin:0 0 36px}
+ .process-intro a{margin-top:24px;gap:16px}
+ .process-cards{position:relative;inset:auto;width:100%;height:auto;transform:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;perspective:none}
+ .process-card{position:relative;inset:auto;min-width:0;min-height:300px;height:auto;transform:none!important;opacity:1!important;padding:24px}
+ .process-card p{max-width:none}
+ .process-progress{display:none}
+ .receive-section{height:auto}
+ .receive-stage{position:relative;top:auto;min-height:0;padding-bottom:64px}
+}
+
+@media(max-width:480px){
+ :root{--section-title-size:clamp(30px,8.5vw,40px)}
+ .about-section,.approach-section,.expertise-section,.contact-section,.site-footer{padding-left:20px;padding-right:20px}
+ .about-actions{flex-direction:column;align-items:stretch}
+ .about-actions a{width:100%}
+ .contact-form{padding:26px 20px}
+ .footer-grid{gap:32px 20px}
+ .footer-brand{grid-column:1/-1;width:190px}
+ .footer-bottom{flex-direction:column;gap:12px;margin-top:64px;padding-bottom:64px}
+ .social-carousel{height:400px}
+ .social-card{width:min(270px,calc(100vw - 64px));height:350px;margin:-175px 0 0;transform-origin:center;left:50%;margin-left:max(-135px,calc(32px - 50vw))}
+ .menu-open .menu-list a:nth-child(n){padding-left:0;text-align:left}
+ .menu-list a{font-size:clamp(32px,9vw,43px)}
+ .entry-choices{bottom:max(28px,env(safe-area-inset-bottom))}
+ body .core-section .core-content blockquote{font-size:clamp(20px,5.5vw,24px)}
+ .core-section .core-content{padding:22px;gap:24px;min-height:380px}
+}
+@media(max-height:650px){
+ .full-menu{padding-top:90px;padding-bottom:28px}
+ .menu-list{height:auto;min-height:0;gap:8px}
+ .menu-list a{font-size:clamp(30px,6vh,48px)}
+ .menu-contact{position:relative;inset:auto;margin-top:28px}
+ .menu-signoff{display:none}
+ .footer-bottom{padding-bottom:56px}
+}
+
+@media(max-height:800px){.receive-section{height:auto}.receive-stage{position:relative;top:auto;min-height:0}}

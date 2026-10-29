@@ -1,0 +1,1 @@
+document.querySelector('.contact-form').addEventListener('submit',event=>{event.preventDefault();event.currentTarget.querySelector('.contact-status').textContent='This is a preview form. Your enquiry has not been sent.';});

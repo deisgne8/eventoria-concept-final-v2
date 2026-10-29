@@ -1,0 +1,6 @@
+(() => {
+const toggle=document.querySelector('.menu-toggle'),panel=document.querySelector('.full-menu'),main=document.querySelector('main'),footer=document.querySelector('.site-footer'),brand=document.querySelector('.travelling-brand');let open=false;
+function setOpen(value){open=value;document.body.classList.toggle('menu-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close menu':'Open menu');panel.inert=!open;main.inert=open;footer.inert=open;brand.inert=open;document.body.style.overflow=open?'hidden':'';if(open)panel.querySelector('a').focus({preventScroll:true});else toggle.focus({preventScroll:true});}
+toggle.addEventListener('click',()=>setOpen(!open));panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setOpen(false)));
+addEventListener('keydown',event=>{if(!open)return;if(event.key==='Escape'){setOpen(false);return;}if(event.key==='Tab'){const items=[toggle,...panel.querySelectorAll('a')],first=items[0],last=items.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}});
+})();
